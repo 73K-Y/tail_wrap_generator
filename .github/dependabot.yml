@@ -1,0 +1,31 @@
+version: 2
+
+updates:
+  # Aggiorna le GitHub Actions usate nei workflow
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+      timezone: "Europe/Rome"
+    labels:
+      - "dependencies"
+      - "github-actions"
+    commit-message:
+      prefix: "chore(actions)"
+
+  # Aggiorna dipendenze pip (ora non ce ne sono, ma pronto per il futuro)
+  - package-ecosystem: "pip"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+      timezone: "Europe/Rome"
+    labels:
+      - "dependencies"
+      - "python"
+    commit-message:
+      prefix: "chore(deps)"
+    open-pull-requests-limit: 5
